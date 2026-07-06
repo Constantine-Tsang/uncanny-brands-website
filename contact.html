@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Uncanny</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #FF5C2B;
+      --orange-light: #FF7A50;
+      --bg: #080808;
+      --bg2: #0f0f0f;
+      --bg3: #161616;
+      --bg4: #1e1e1e;
+      --border: rgba(255,255,255,0.07);
+      --text: #ffffff;
+      --muted: #888888;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 72px;
+      background: rgba(8,8,8,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo svg { height: 28px; width: auto; }
+    .nav-back {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+    }
+    .contact-wrap {
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ── LEFT COPY ── */
+    .contact-info {
+      padding-top: 8px;
+    }
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,92,43,0.1);
+      border: 1px solid rgba(255,92,43,0.25);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .contact-badge-dot {
+      width: 6px; height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+    .contact-info h1 {
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .contact-info h1 span { color: var(--orange); }
+    .contact-info p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 420px;
+    }
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding-bottom: 4px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-email:hover { color: var(--orange); border-color: var(--orange); }
+    .contact-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .contact-stat-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--orange);
+      letter-spacing: -0.02em;
+    }
+    .contact-stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── FORM ── */
+    .contact-form-wrap {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 44px;
+    }
+    .contact-form-wrap h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .contact-form-wrap > p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+    input, select, textarea {
+      background: var(--bg4);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.25); }
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(255,92,43,0.5);
+    }
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+    select option { background: var(--bg4); }
+    textarea { resize: vertical; min-height: 120px; }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      border-radius: 4px;
+      margin-top: 1px;
+      accent-color: var(--orange);
+      cursor: pointer;
+    }
+    .checkbox-group span {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+    .checkbox-group a { color: var(--orange); text-decoration: none; }
+    .checkbox-group a:hover { text-decoration: underline; }
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .submit-btn:hover { background: var(--orange-light); transform: translateY(-1px); }
+    .submit-btn:active { transform: translateY(0); }
+    .form-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .success-msg .check {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .success-msg h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .success-msg p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 48px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .contact-info h1 { font-size: 36px; }
+      nav { padding: 0 24px; }
+      .contact-form-wrap { padding: 28px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="/">
+      <svg width="231" height="51" viewBox="0 0 231 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.1765 46.5297C11.9575 47.9203 6.43041 46.4518 3.66684 45.1744C3.96434 42.1772 5.49846 36.7384 9.88218 32.163C13.929 27.9379 18.603 25.659 24.4133 25.107C25.0298 26.1934 26.1948 26.9329 27.5461 26.9329C29.539 26.9329 31.152 25.337 31.152 23.3731C31.152 21.4056 29.5354 19.8133 27.5461 19.8133C26.2414 19.8133 25.1087 20.5033 24.4743 21.526C17.6281 22.0992 11.9755 24.7921 7.2584 29.7178C1.53054 35.698 0 42.9097 0 46.2254C0 46.9154 0.397868 47.5134 0.97854 47.8071C3.16861 49.0598 7.59534 50.6557 13.0221 50.6557C14.9003 50.6557 16.9004 50.4646 18.9686 50.001C21.5888 49.4172 23.9438 48.5538 26.0944 47.3966C25.0227 46.6571 24.0226 45.8184 23.062 44.9196C21.5601 45.6026 19.94 46.1334 18.1765 46.5297Z" fill="#FF8A50"/>
+        <path d="M19.0976 15.6271C20.983 9.60798 25.0334 5.61998 27.5281 3.89314C30.0085 5.64475 34.0159 9.67167 35.8439 15.705C37.5322 21.2783 37.1988 26.4128 34.7793 31.6605C33.5176 31.6463 32.2846 32.2727 31.6107 33.4263C30.6143 35.1319 31.2093 37.3081 32.9334 38.2883C34.6611 39.272 36.8655 38.6846 37.8583 36.9825C38.5107 35.8679 38.4713 34.5551 37.887 33.5006C40.8011 27.3611 41.2599 21.1792 39.2957 14.6859C36.9156 6.79833 31.3491 1.89384 28.4385 0.237776C27.8399 -0.101929 27.1266 -0.0665434 26.5782 0.273162C23.6319 1.94338 18.094 6.78064 15.6494 14.5762C14.8142 17.2372 14.3985 19.8027 14.377 22.3398C15.5562 21.7843 16.7785 21.3136 18.0474 20.9315C18.1872 19.2011 18.5313 17.4424 19.0976 15.6271Z" fill="#FF8A50"/>
+        <path d="M48.1529 29.9337C46.3142 27.8636 44.3392 26.1898 42.1885 24.8523C42.0666 26.1438 41.8516 27.4319 41.5326 28.7129C42.909 29.7143 44.2065 30.8962 45.4431 32.2833C49.6512 37.0144 50.981 42.5063 51.1674 45.5141C48.3573 46.6854 42.7835 47.9522 36.6219 46.3386C30.9263 44.8453 26.6681 41.88 23.3991 37.1029C24.0694 36.0484 24.1733 34.686 23.5281 33.5112C22.5783 31.7844 20.3846 31.1439 18.6354 32.0816C16.8863 33.0193 16.2375 35.185 17.1874 36.9118C17.811 38.0441 18.9652 38.6952 20.1803 38.7554C23.9583 44.4171 29.0553 48.0371 35.6936 49.7746C38.1166 50.4115 40.4573 50.6628 42.6258 50.6628C47.6619 50.6628 51.7732 49.2969 53.8414 48.1893C53.8916 48.1645 53.9417 48.1327 53.9919 48.1008C54.5224 47.7505 54.8092 47.1666 54.7948 46.5757C54.8844 43.2211 53.5941 36.0519 48.1529 29.9337Z" fill="#FF8A50"/>
+        <path d="M85.388 30.9988C85.388 35.691 81.524 39.4737 76.8034 39.4737C72.0505 39.4737 68.2188 35.691 68.1865 31.0306V17.177H72.6204V30.9988C72.6204 32.0922 73.0649 33.1255 73.857 33.9075C74.6492 34.6896 75.6958 35.0965 76.8034 35.0965C77.911 35.0965 78.9254 34.6896 79.7175 33.9075C80.5097 33.1255 80.9219 32.1241 80.9541 31.0306H80.9219V17.177H85.3558V30.9988H85.388Z" fill="#fff"/>
+        <path d="M108.772 39.0986L96.291 26.3066V39.0986H91.8535V17.177H93.2478L105.506 29.4347V17.177H109.94V39.0986H108.772Z" fill="#fff"/>
+        <path d="M130.311 22.492C126.002 19.739 119.507 22.3044 119.507 28.1821C119.507 34.3427 126.382 36.8127 130.562 33.6846L133.411 36.9047C131.415 38.5324 128.848 39.5303 126.063 39.5303C119.726 39.5303 114.564 34.4312 114.564 28.1785C114.564 21.9223 119.73 16.8267 126.063 16.8267C128.723 16.8267 131.196 17.7326 133.16 19.2365L130.311 22.492Z" fill="#fff"/>
+        <path d="M148.265 17.177L158.749 39.0986H153.839L147.501 25.7758L140.626 39.0986H135.651L146.96 17.177H148.265Z" fill="#fff"/>
+        <path d="M180.513 39.0986L168.033 26.3066V39.0986H163.599V17.177H164.993L177.252 29.4347V17.177H181.685V39.0986H180.513Z" fill="#fff"/>
+        <path d="M205.426 39.0986L192.945 26.3066V39.0986H188.511V17.177H189.905L202.164 29.4347V17.177H206.598V39.0986H205.426Z" fill="#fff"/>
+        <path d="M230.431 17.177L223.208 31.0625V39.0986H218.774V31.0625L211.52 17.177H216.43L220.993 25.4326L225.524 17.177H230.431Z" fill="#fff"/>
+      </svg>
+    </a>
+  </div>
+  <a class="nav-back" href="/">← Back to Home</a>
+</nav>
+
+<main>
+  <div class="contact-wrap">
+
+    <!-- LEFT: COPY -->
+    <div class="contact-info">
+      <div class="contact-badge">
+        <span class="contact-badge-dot"></span>
+        Let's Talk
+      </div>
+      <h1>Connect With Us <span>Today.</span></h1>
+      <p>Ready to put your brand in front of millions of live viewers? Typical response time is within 24 hours.</p>
+      <a class="contact-email" href="mailto:partnerships@uncanny.gg">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        partnerships@uncanny.gg
+      </a>
+      <div class="contact-stats">
+        <div>
+          <div class="contact-stat-num">24h</div>
+          <div class="contact-stat-label">Response Time</div>
+        </div>
+        <div>
+          <div class="contact-stat-num">500M+</div>
+          <div class="contact-stat-label">Monthly Live Viewers</div>
+        </div>
+        <div>
+          <div class="contact-stat-num">50+</div>
+          <div class="contact-stat-label">Enterprise Brands</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="contact-form-wrap">
+      <h2>Get in Touch</h2>
+      <p>Tell us about your brand and campaign goals.</p>
+
+      <div id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Work Email</label>
+          <input type="email" placeholder="jane@company.com" />
+        </div>
+        <div class="form-group">
+          <label>Company</label>
+          <input type="text" placeholder="Acme Corp" />
+        </div>
+        <div class="form-group">
+          <label>I am a…</label>
+          <select>
+            <option value="" disabled selected>Select your role</option>
+            <option>Brand Marketer</option>
+            <option>Media / Ad Agency</option>
+            <option>Agency Trading Desk</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us about your campaign goals, target audience, or any questions you have…"></textarea>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="consent" />
+          <span>I agree to receive marketing communications from Uncanny. I can opt out at any time via the unsubscribe link in any email received. See our <a href="privacy.html">Privacy Policy</a>.</span>
+        </div>
+        <button class="submit-btn" onclick="handleSubmit()">Send Message</button>
+        <p class="form-note">We'll get back to you within 24 hours.</p>
+      </div>
+
+      <div class="success-msg" id="success-msg">
+        <div class="check">✅</div>
+        <h3>Message Sent!</h3>
+        <p>Thanks for reaching out. We'll be in touch within 24 hours at the email you provided.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 Pivan Interactive Inc. All rights reserved. — <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+<script>
+  function handleSubmit() {
+    var form = document.getElementById('contact-form');
+    var success = document.getElementById('success-msg');
+    form.style.display = 'none';
+    success.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
