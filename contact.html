@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -389,6 +390,7 @@
           <input type="checkbox" id="consent" />
           <span>I agree to receive marketing communications from Uncanny. I can opt out at any time via the unsubscribe link in any email received. See our <a href="privacy.html">Privacy Policy</a>.</span>
         </div>
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" style="margin-bottom: 20px;"></div>
         <button class="submit-btn" onclick="handleSubmit()">Send Message</button>
         <p class="form-note">We'll get back to you within 24 hours.</p>
       </div>
@@ -409,6 +411,11 @@
 
 <script>
   function handleSubmit() {
+    var response = grecaptcha.getResponse();
+    if (!response) {
+      alert('Please complete the CAPTCHA before submitting.');
+      return;
+    }
     var form = document.getElementById('contact-form');
     var success = document.getElementById('success-msg');
     form.style.display = 'none';
