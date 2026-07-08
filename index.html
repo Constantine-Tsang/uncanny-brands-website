@@ -50,7 +50,7 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo svg { height: 28px; width: auto; }
+    .nav-logo svg { height: 60px; width: auto; }
     .nav-links {
       display: flex;
       align-items: center;
@@ -127,7 +127,7 @@
       border: 1px solid rgba(255,92,43,0.3);
       border-radius: 100px;
       padding: 6px 16px;
-      font-size: 12px;
+      font-size: 9px;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -142,16 +142,17 @@
       background: rgba(145,70,255,0.12);
       border: 1px solid rgba(145,70,255,0.35);
       border-radius: 100px;
-      padding: 7px 18px;
-      font-size: 12px;
+      padding: 11px 27px;
+      font-size: 18px;
       font-weight: 600;
       letter-spacing: 0.06em;
       color: #bf94ff;
+      margin-top: 32px;
       margin-bottom: 28px;
       position: relative;
     }
     .twitch-badge img {
-      height: 16px;
+      height: 48px;
       width: auto;
       filter: brightness(0) invert(1);
       opacity: 0.85;
@@ -220,7 +221,7 @@
     .hero-stats {
       display: flex;
       gap: 48px;
-      margin-top: 72px;
+      margin-top: 32px;
       position: relative;
       flex-wrap: wrap;
       justify-content: center;
@@ -312,7 +313,7 @@
     #strip-mute-btn:hover { background: rgba(0,0,0,0.85); }
 
     /* ── TRUSTED BY ── */
-    .trusted { background: var(--bg); padding: 60px 0; overflow: hidden; }
+    .trusted { background: var(--bg); padding: 0 0 60px; overflow: hidden; margin-top: -120px; }
     .trusted-label {
       text-align: center;
       font-size: 11px;
@@ -430,8 +431,7 @@
       width: auto;
       max-width: 160px;
       object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: 0.5;
+      opacity: 0.85;
       transition: opacity 0.3s;
     }
     .platform-item img:hover { opacity: 1; }
@@ -512,9 +512,9 @@
     }
     .audience-pill {
       display: inline-block;
-      padding: 5px 14px;
+      padding: 8px 21px;
       border-radius: 100px;
-      font-size: 11px;
+      font-size: 17px;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -718,7 +718,7 @@
       border: 1px solid rgba(255,92,43,0.25);
       border-radius: 100px;
       padding: 6px 14px;
-      font-size: 11px;
+      font-size: 22px;
       font-weight: 700;
       letter-spacing: 0.1em;
       color: var(--orange);
@@ -957,24 +957,16 @@
     <div class="hero-grid"></div>
     <div class="hero-glow"></div>
     <div class="hero-content">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      AI-Powered Live-Stream Advertising
-    </div>
-    <div class="twitch-badge">
-      <img src="New_Logos/Twitch_logo.svg.png" alt="Twitch" />
-      Official Technology Provider to Twitch
-    </div>
     <h1>
       Where Iconic Brands<br/>
       Meet <span class="accent">Live Audiences.</span>
     </h1>
     <p class="hero-sub">
-      Uncanny is the world's most advanced AI-driven on-stream advertising platform — delivering non-intrusive, contextually intelligent brand integrations across Twitch, YouTube, TikTok, and Facebook Live.
+      Uncanny is the world's most advanced live-stream advertising platform — connecting brands with key moments via AI to deliver non-intrusive, contextually intelligent integrations across Twitch, YouTube, TikTok, and Facebook Live.
     </p>
-    <div class="hero-actions">
-      <a href="#brands" class="btn-primary">I'm a Brand</a>
-      <a href="#agencies" class="btn-secondary">I'm an Agency</a>
+    <div class="twitch-badge">
+      <img src="New_Logos/Twitch_logo.svg.png" alt="Twitch" />
+      Official Technology Provider to Twitch
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
@@ -995,6 +987,11 @@
       <div class="hero-stat">
         <div class="hero-stat-num">60<span>%+</span></div>
         <div class="hero-stat-label">Beta-State Brand Recall</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">72<span>%</span></div>
+        <div class="hero-stat-label">of Audience Below 35 — Emerging Generations</div>
       </div>
     </div>
     </div><!-- end hero-content -->
@@ -1036,13 +1033,8 @@
   <!-- STRATEGIC PARTNERS -->
   <div class="partners">
     <p class="partners-label">Strategic Partners and Investors</p>
-    <div style="text-align:center; margin-bottom: 40px;">
-      <span style="display:inline-flex; align-items:center; gap:14px; background:rgba(145,70,255,0.12); border:1px solid rgba(145,70,255,0.35); border-radius:100px; padding:14px 32px; font-size:18px; font-weight:700; letter-spacing:0.04em; color:#bf94ff;">
-        <img src="New_Logos/Twitch_logo.svg.png" alt="Twitch" style="height:26px; filter:brightness(0) invert(1); opacity:0.85;" />
-        Official Technology Provider to Twitch
-      </span>
-    </div>
     <div class="partners-logos">
+      <div class="partner-item"><img src="New_Logos/Twitch_logo.svg.png" alt="Twitch" /></div>
       <div class="partner-item"><img src="https://brands.uncanny.gg/images/landing/icon_comcast.png" alt="Comcast" /></div>
       <div class="partner-item"><img src="https://brands.uncanny.gg/images/landing/icon_nbc.png" alt="NBCUniversal" /></div>
       <div class="partner-item"><img src="https://brands.uncanny.gg/images/landing/icon_t1.png" alt="T1" /></div>
@@ -1057,10 +1049,10 @@
     <div class="platforms-inner">
       <p class="platforms-text">Live on</p>
       <div class="platforms-logos">
-        <div class="platform-item"><img src="New_Logos/Twitch_logo.svg.png" alt="Twitch" /></div>
-        <div class="platform-item"><img src="New_Logos/youtube.svg" alt="YouTube" /></div>
-        <div class="platform-item"><img src="New_Logos/tiktok.svg" alt="TikTok" /></div>
-        <div class="platform-item"><img src="New_Logos/facebook.svg" alt="Facebook Live" /></div>
+        <div class="platform-item"><img src="New_Logos/twitch_color.svg" alt="Twitch" /></div>
+        <div class="platform-item"><img src="New_Logos/youtube_color.svg" alt="YouTube" /></div>
+        <div class="platform-item"><img src="New_Logos/tiktok_color.svg" alt="TikTok" /></div>
+        <div class="platform-item"><img src="New_Logos/facebook_color.svg" alt="Facebook Live" /></div>
       </div>
     </div>
   </div>
@@ -1070,7 +1062,7 @@
     <div class="container">
       <div class="ai-prop-grid">
         <div>
-          <p class="section-label">Our Technology</p>
+          <p class="section-label" style="font-size:22px;">Our Technology</p>
           <h2 class="section-title">AI that finds the moment — then makes it yours.</h2>
           <p class="section-desc">
             Our proprietary AI monitors live streams in real time to detect high-excitement moments — the plays, wins, and reactions that jolt viewer brainwaves from low-attention alpha waves into high-focus beta waves. It's in those beta-state moments that brand recall peaks above 60%. Uncanny places your brand exactly there. Non-skippable. Non-frustrating. Authentic.
@@ -1109,7 +1101,7 @@
   <section class="how" id="how-it-works">
     <div class="container">
       <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-        <p class="section-label">How It Works</p>
+        <p class="section-label" style="font-size:22px;">How It Works</p>
         <h2 class="section-title">From brief to broadcast in days, not months.</h2>
       </div>
       <div class="how-steps">
@@ -1141,7 +1133,7 @@
   <section class="dual" id="brands">
     <div class="container">
       <div style="text-align: center; margin-bottom: 56px;">
-        <p class="section-label">Built for Both</p>
+        <p class="section-label" style="font-size:22px;">Built for Both</p>
         <h2 class="section-title">Your goals. Your audience. Our platform.</h2>
       </div>
       <div class="dual-grid">
@@ -1151,7 +1143,7 @@
           <div class="audience-pill pill-brand">For Brands</div>
           <h2>Reach the audiences your other media can't.</h2>
           <p>
-            The Gen-Z audience is hard to reach and a very particular tribe. Uncanny puts your brand inside their world — without breaking the experience. Trusted by major brands including Twitch themselves.
+            The Gen-Z audience is hard to reach and a very particular tribe. Uncanny puts your brand inside their world — without breaking the experience. Trusted by major brands including Twitch themselves. Our team brings deep experience with digital marketing, gaming, AI, CPG and retail.
           </p>
           <ul class="feature-list">
             <li>Access 250M+ monthly live-stream viewers — 90% take action after watching Twitch ads</li>
@@ -1191,7 +1183,7 @@
     <div class="container">
       <div class="agency-header">
         <div>
-          <p class="section-label" style="color:var(--blue);">Agency Partners</p>
+          <p class="section-label" style="color:var(--blue); font-size:22px;">Agency Partners</p>
           <h2 class="section-title">The live-stream channel your clients are already asking for.</h2>
         </div>
         <div>
@@ -1210,9 +1202,9 @@
           <p>Uncanny scales across thousands of streamers at once — AI handles matching, monitoring, and optimization so your team doesn't have to.</p>
         </div>
         <div class="agency-card">
-          <div class="agency-card-num">$0</div>
-          <h3>Platform Fee to Get Started</h3>
-          <p>No seat licenses. No onboarding fees. Your agency accesses Uncanny's full platform as a managed or self-serve partner.</p>
+          <div class="agency-card-num">4min</div>
+          <h3>High Funnel Brand and Social Commerce</h3>
+          <p>Uncanny connects your brand frequently to high-intent audiences at peak attention moments — driving discovery, consideration, and social commerce in a single placement.</p>
         </div>
         <div class="agency-card">
           <div class="agency-card-num">48h</div>
@@ -1320,7 +1312,7 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-brand">
-          <svg width="180" height="40" viewBox="0 0 231 51" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;margin-bottom:16px;">
+          <svg width="257" height="57" viewBox="0 0 231 51" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;margin-bottom:16px;">
             <path d="M18.1765 46.5297C11.9575 47.9203 6.43041 46.4518 3.66684 45.1744C3.96434 42.1772 5.49846 36.7384 9.88218 32.163C13.929 27.9379 18.603 25.659 24.4133 25.107C25.0298 26.1934 26.1948 26.9329 27.5461 26.9329C29.539 26.9329 31.152 25.337 31.152 23.3731C31.152 21.4056 29.5354 19.8133 27.5461 19.8133C26.2414 19.8133 25.1087 20.5033 24.4743 21.526C17.6281 22.0992 11.9755 24.7921 7.2584 29.7178C1.53054 35.698 0 42.9097 0 46.2254C0 46.9154 0.397868 47.5134 0.97854 47.8071C3.16861 49.0598 7.59534 50.6557 13.0221 50.6557C14.9003 50.6557 16.9004 50.4646 18.9686 50.001C21.5888 49.4172 23.9438 48.5538 26.0944 47.3966C25.0227 46.6571 24.0226 45.8184 23.062 44.9196C21.5601 45.6026 19.94 46.1334 18.1765 46.5297Z" fill="#FF8A50"/>
             <path d="M19.0976 15.6271C20.983 9.60798 25.0334 5.61998 27.5281 3.89314C30.0085 5.64475 34.0159 9.67167 35.8439 15.705C37.5322 21.2783 37.1988 26.4128 34.7793 31.6605C33.5176 31.6463 32.2846 32.2727 31.6107 33.4263C30.6143 35.1319 31.2093 37.3081 32.9334 38.2883C34.6611 39.272 36.8655 38.6846 37.8583 36.9825C38.5107 35.8679 38.4713 34.5551 37.887 33.5006C40.8011 27.3611 41.2599 21.1792 39.2957 14.6859C36.9156 6.79833 31.3491 1.89384 28.4385 0.237776C27.8399 -0.101929 27.1266 -0.0665434 26.5782 0.273162C23.6319 1.94338 18.094 6.78064 15.6494 14.5762C14.8142 17.2372 14.3985 19.8027 14.377 22.3398C15.5562 21.7843 16.7785 21.3136 18.0474 20.9315C18.1872 19.2011 18.5313 17.4424 19.0976 15.6271Z" fill="#FF8A50"/>
             <path d="M48.1529 29.9337C46.3142 27.8636 44.3392 26.1898 42.1885 24.8523C42.0666 26.1438 41.8516 27.4319 41.5326 28.7129C42.909 29.7143 44.2065 30.8962 45.4431 32.2833C49.6512 37.0144 50.981 42.5063 51.1674 45.5141C48.3573 46.6854 42.7835 47.9522 36.6219 46.3386C30.9263 44.8453 26.6681 41.88 23.3991 37.1029C24.0694 36.0484 24.1733 34.686 23.5281 33.5112C22.5783 31.7844 20.3846 31.1439 18.6354 32.0816C16.8863 33.0193 16.2375 35.185 17.1874 36.9118C17.811 38.0441 18.9652 38.6952 20.1803 38.7554C23.9583 44.4171 29.0553 48.0371 35.6936 49.7746C38.1166 50.4115 40.4573 50.6628 42.6258 50.6628C47.6619 50.6628 51.7732 49.2969 53.8414 48.1893C53.8916 48.1645 53.9417 48.1327 53.9919 48.1008C54.5224 47.7505 54.8092 47.1666 54.7948 46.5757C54.8844 43.2211 53.5941 36.0519 48.1529 29.9337Z" fill="#FF8A50"/>
