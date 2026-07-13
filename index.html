@@ -618,6 +618,28 @@
       line-height: 1.6;
     }
 
+    /* ── VIDEO SHOWCASE ── */
+    .video-showcase {
+      background: var(--bg);
+      padding: 100px 24px;
+    }
+    .video-grid {
+      display: flex;
+      justify-content: center;
+    }
+    .video-item {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+    .video-item video {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
     /* ── AGENCY SECTION ── */
     .agency { background: var(--bg2); }
     .agency-header {
@@ -1163,6 +1185,23 @@
     </div>
   </section>
 
+  <!-- SEE IT IN ACTION -->
+  <section class="video-showcase" id="see-it-in-action">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:48px;">
+        <p class="section-label" style="font-size:22px;">See It In Action</p>
+        <h2 class="section-title">Brands Own the Moment.</h2>
+      </div>
+      <div class="video-grid">
+        <div class="video-item">
+          <video autoplay muted loop playsinline id="oxyshred-video">
+            <source src="videos/Demo%20Oxyshred%20-%20Fortnite%20Replay%20D02.m4v" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- DUAL AUDIENCE -->
   <section class="dual" id="brands">
     <div class="container">
@@ -1390,5 +1429,11 @@
   </footer>
 
 
+<script>
+  var v = document.getElementById('oxyshred-video');
+  if (v) {
+    v.addEventListener('loadedmetadata', function() { v.currentTime = 3; });
+  }
+</script>
 </body>
 </html>
