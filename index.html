@@ -640,6 +640,28 @@
       object-fit: cover;
     }
 
+    #video-sound-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-family: inherit;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: background 0.2s;
+      z-index: 10;
+    }
+    #video-sound-btn:hover { background: rgba(0,0,0,0.85); }
+    #video-sound-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
     /* ── AGENCY SECTION ── */
     .agency { background: var(--bg2); }
     .agency-header {
@@ -946,6 +968,32 @@
       .how-steps { grid-template-columns: 1fr; }
       .footer-top { flex-direction: column; }
       .footer-cols { gap: 32px; }
+
+      /* 1) Nav: logo left, Twitch badge right, both smaller */
+      nav { justify-content: space-between; }
+      .nav-logo svg { height: 28px; }
+      .twitch-badge {
+        position: static !important;
+        transform: none !important;
+        font-size: 9px !important;
+        padding: 5px 10px !important;
+        gap: 5px !important;
+      }
+      .twitch-badge img { height: 14px !important; }
+
+      /* 2) Stats: 2 rows of 3 and 2 */
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px 8px;
+      }
+      .hero-stat-num { font-size: 28px; }
+      .hero-stat-label { font-size: 11px; }
+
+      /* 3) Logo ticker: smaller logos, tighter gap */
+      .logo-track { gap: 40px; }
+      .logo-item { height: 44px; }
+      .logo-item img { max-width: 120px; }
     }
     @media (min-width: 1500px) {
       nav { height: 96px; padding: 0 80px; }
@@ -1352,20 +1400,7 @@
     <video id="strip-video" autoplay muted loop playsinline>
       <source src="New_Logos/landing_video_b.mp4" type="video/mp4" />
     </video>
-    <button id="strip-mute-btn" onclick="
-      var v = document.getElementById('strip-video');
-      var btn = document.getElementById('strip-mute-btn');
-      if (v.muted) {
-        v.muted = false;
-        v.volume = 0.5;
-        v.style.opacity = '1';
-        btn.innerHTML = '&#128266; Sound On';
-      } else {
-        v.muted = true;
-        v.style.opacity = '0.5';
-        btn.innerHTML = '&#128264; Sound Off';
-      }
-    ">&#128264; Sound Off</button>
+    <button id="strip-mute-btn" onclick="toggleStripVideo()">&#128264; Sound Off</button>
   </div>
 
   <!-- CTA -->
@@ -1433,6 +1468,29 @@
   var v = document.getElementById('oxyshred-video');
   if (v) {
     v.addEventListener('loadedmetadata', function() { v.currentTime = 3; });
+  }
+
+  var stripExpanded = false;
+  function toggleStripVideo() {
+    var v = document.getElementById('strip-video');
+    var btn = document.getElementById('strip-mute-btn');
+    if (!v) return;
+    if (!stripExpanded) {
+      v.muted = false;
+      v.volume = 0.5;
+      v.style.opacity = '1';
+      v.style.height = '100vh';
+      v.style.transition = 'height 0.5s ease';
+      btn.innerHTML = '&#128266; Sound On — click to close';
+      stripExpanded = true;
+    } else {
+      v.muted = true;
+      v.volume = 0;
+      v.style.opacity = '0.5';
+      v.style.height = '640px';
+      btn.innerHTML = '&#128264; Sound Off';
+      stripExpanded = false;
+    }
   }
 </script>
 </body>
